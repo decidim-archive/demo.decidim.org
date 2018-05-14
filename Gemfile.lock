@@ -351,6 +351,7 @@ GEM
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
       railties (>= 3.2)
+    libv8 (3.16.14.19)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -474,6 +475,7 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redis (4.0.1)
+    ref (2.0.0)
     request_store (1.4.1)
       rack (>= 1.4)
     responders (2.4.0)
@@ -563,6 +565,9 @@ GEM
       net-ssh (>= 2.8.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
+    therubyracer (0.12.3)
+      libv8 (~> 3.16.14.15)
+      ref
     thor (0.20.0)
     thread (0.2.2)
     thread_safe (0.3.6)
@@ -621,6 +626,7 @@ DEPENDENCIES
   puma (~> 3.0)
   spring (~> 2.0)
   spring-watcher-listen (~> 2.0)
+  therubyracer
   uglifier (~> 4.1)
   web-console (~> 3.5)
 
