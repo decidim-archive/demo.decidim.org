@@ -7,5 +7,5 @@ set :deploy_to, "/var/www/demo.decidim.org"
 set :passenger_restart_with_touch, true
 set :rbenv_type, :user
 
-append :linked_files, "config/application.yml"
+append :linked_files, "config/application.yml", ".rbenv-vars"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
