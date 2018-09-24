@@ -6,4 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # You can remove the 'faker' gem if you don't want Decidim seeds.
+#
+
+require "decidim/faker/localized"
+
 Decidim.seed!
