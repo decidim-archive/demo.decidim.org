@@ -5,6 +5,8 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "decidim", "0.14.1"
+gem "decidim-consultations", "0.14.1"
+gem "decidim-initiatives", "0.14.1"
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
