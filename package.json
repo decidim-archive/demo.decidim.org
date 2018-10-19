@@ -1,5 +1,6 @@
 {
   "name": "demo_decidim_org",
   "private": true,
+  "version": "0.15.0-dev",
   "dependencies": {}
 }
