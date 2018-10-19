@@ -3,10 +3,11 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
+DECIDIM_VERSION = { git: "https://github.com/decidim/decidim", branch: "master"}
 
-gem "decidim", "0.14.1"
-gem "decidim-consultations", "0.14.1"
-gem "decidim-initiatives", "0.14.1"
+gem "decidim", DECIDIM_VERSION
+gem "decidim-consultations", DECIDIM_VERSION
+gem "decidim-initiatives", DECIDIM_VERSION
 
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
@@ -17,7 +18,7 @@ gem "therubyracer"
 group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
 
-  gem "decidim-dev", "0.14.1"
+  gem "decidim-dev", DECIDIM_VERSION
 end
 
 group :development do
@@ -31,6 +32,6 @@ group :development do
   gem "capistrano", "~> 3.10"
   gem "capistrano-rails", "~> 1.3"
   gem "capistrano-bundler", "~> 1.3"
-  gem "capistrano-passenger"
   gem "capistrano-rbenv", "~> 2.1"
+  gem "capistrano3-puma"
 end
