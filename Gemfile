@@ -12,6 +12,7 @@ gem "decidim-initiatives", DECIDIM_VERSION
 gem "puma", "~> 3.0"
 gem "uglifier", "~> 4.1"
 
+gem "airbrake", "~> 5.0"
 gem "faker", "~> 1.8"
 gem "therubyracer"
 gem "figaro"
