@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 52e9985a4c177269bb8b5aa9ffbbe7e9036ec59a
-  branch: master
+  revision: 5f4f973ee07f9d52f1c54765b41efa0203f4b1bb
+  branch: 0.15-stable
   specs:
     decidim (0.15.0.dev)
       decidim-accountability (= 0.15.0.dev)
@@ -236,7 +236,7 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    acts_as_list (0.9.16)
+    acts_as_list (0.9.17)
       activerecord (>= 3.0)
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
@@ -288,13 +288,14 @@ GEM
       capistrano (~> 3.7)
       capistrano-bundler
       puma (~> 3.4)
-    capybara (3.9.0)
+    capybara (3.10.1)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
-      xpath (~> 3.1)
+      regexp_parser (~> 1.2)
+      xpath (~> 3.2)
     carrierwave (1.2.3)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -321,7 +322,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    colorize (0.8.1)
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -356,11 +356,11 @@ GEM
       railties (>= 4.2)
     doorkeeper-i18n (4.0.0)
     equalizer (0.0.11)
-    erb_lint (0.0.26)
+    erb_lint (0.0.28)
       activesupport
       better_html (~> 1.0.7)
-      colorize
       html_tokenizer
+      rainbow
       rubocop (~> 0.51)
       smart_properties
     erbse (0.1.3)
@@ -395,7 +395,7 @@ GEM
     geocoder (1.5.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    graphiql-rails (1.4.11)
+    graphiql-rails (1.5.0)
       railties
       sprockets-rails
     graphql (1.8.11)
@@ -408,16 +408,17 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.1.0)
       concurrent-ruby (~> 1.0)
-    i18n-tasks (0.9.25)
+    i18n-tasks (0.9.28)
       activesupport (>= 4.0.2)
       ast (>= 2.1.0)
       erubi
       highline (>= 2.0.0)
       i18n
       parser (>= 2.2.3.0)
+      rails-i18n
       rainbow (>= 2.2.2, < 4.0)
       terminal-table (>= 1.5.1)
-    icalendar (2.5.0)
+    icalendar (2.5.1)
       ice_cube (~> 0.16)
     ice_cube (0.16.3)
     ice_nine (0.11.2)
@@ -523,7 +524,7 @@ GEM
       request_store (~> 1.1)
     paper_trail-association_tracking (1.0.0)
     parallel (1.12.1)
-    parser (2.5.1.2)
+    parser (2.5.3.0)
       ast (~> 2.4.0)
     pg (1.1.3)
     pg_search (2.1.2)
@@ -541,7 +542,7 @@ GEM
     public_suffix (3.0.3)
     puma (3.11.3)
     rack (2.0.5)
-    rack-attack (5.4.1)
+    rack-attack (5.4.2)
       rack (>= 1.0, < 3)
     rack-cors (1.0.2)
     rack-test (1.1.0)
@@ -568,7 +569,7 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
-    rails-i18n (5.1.1)
+    rails-i18n (5.1.2)
       i18n (>= 0.7, < 2)
       railties (>= 5.0, < 6)
     railties (5.2.1)
@@ -579,7 +580,7 @@ GEM
       thor (>= 0.19.0, < 2.0)
     rainbow (3.0.0)
     rake (12.3.1)
-    ransack (2.0.1)
+    ransack (2.1.0)
       actionpack (>= 5.0)
       activerecord (>= 5.0)
       activesupport (>= 5.0)
@@ -594,8 +595,9 @@ GEM
       virtus (~> 1.0.5)
       wisper (>= 1.6.1)
     redcarpet (3.4.0)
-    redis (4.0.2)
+    redis (4.0.3)
     ref (2.0.0)
+    regexp_parser (1.2.0)
     request_store (1.4.1)
       rack (>= 1.4)
     responders (2.4.0)
@@ -619,7 +621,7 @@ GEM
     rspec-mocks (3.8.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
-    rspec-rails (3.8.0)
+    rspec-rails (3.8.1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -657,7 +659,7 @@ GEM
       sprockets-rails
       tilt
     searchlight (4.1.0)
-    selenium-webdriver (3.14.1)
+    selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
     simplecov (0.16.1)
