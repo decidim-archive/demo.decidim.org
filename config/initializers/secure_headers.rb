@@ -29,7 +29,7 @@ if Rails.env.production?
       font_src: %w('self' data:),
       form_action: %w('self'),
       frame_ancestors: %w('none'),
-      img_src: %w(*.maps.api.here.com demo.decidim.org data:),
+      img_src: %w(*.maps.api.here.com demo.decidim.org try.decidim.org data:),
       manifest_src: %w('self'),
       media_src: %w('self'),
       object_src: %w('self'),
