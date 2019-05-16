@@ -18,6 +18,10 @@ gem "faker", "~> 1.8"
 gem "therubyracer"
 gem "figaro"
 
+group :production do
+  gem "secure_headers"
+end
+
 group :development, :test do
   gem "byebug", "~> 10.0", platform: :mri
 
