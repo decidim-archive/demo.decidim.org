@@ -33,7 +33,7 @@ if Rails.env.production?
       manifest_src: %w('self'),
       media_src: %w('self'),
       object_src: %w('self'),
-      sandbox: true, # true and [] will set a maximally restrictive setting
+      sandbox: %w(allow-same-origin allow-forms allow-scripts), # true and [] will set a maximally restrictive setting
       plugin_types: %w(application/x-shockwave-flash),
       script_src: %w('self'),
       style_src: %w('self' 'unsafe-inline'),
