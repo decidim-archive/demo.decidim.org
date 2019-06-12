@@ -1,4 +1,4 @@
-lock "~> 3.10.0"
+lock "~> 3.11.0"
 
 set :application, "demo.decidim.org"
 set :repo_url, "https://github.com/decidim/demo.decidim.org"
