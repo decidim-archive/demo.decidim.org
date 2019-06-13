@@ -21,15 +21,15 @@ if Rails.env.production?
       preserve_schemes: true, # default: false. Schemes are removed from host sources to save bytes and discourage mixed content.
 
       # directive values: these values will directly translate into source directives
-      default_src: %w('self'),
+      default_src: %w('none'),
       base_uri: %w('self'),
       block_all_mixed_content: true, # see http://www.w3.org/TR/mixed-content/
       child_src: %w(www.youtube.com 'self'), # if child-src isn't supported, the value for frame-src will be set.
-      connect_src: %w(wss:),
+      connect_src: %w(wss: 'self'),
       font_src: %w('self' data:),
       form_action: %w('self'),
       frame_ancestors: %w('none'),
-      img_src: %w(*.maps.api.here.com demo.decidim.org try.decidim.org data:),
+      img_src: %w('self' *.maps.api.here.com data:),
       manifest_src: %w('self'),
       media_src: %w('self'),
       object_src: %w('self'),
