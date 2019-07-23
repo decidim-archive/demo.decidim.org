@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: decidim/decidim:0.10.1
+    build: .
     volumes:
       - .:/app
       - bundle:/usr/local/bundle
