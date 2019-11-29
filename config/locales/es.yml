@@ -1,9 +1,9 @@
-en:
+es:
   layouts:
     decidim:
       footer:
         made_with_open_source: |
-          Website made with <a target="_blank" href="https://github.com/decidim/decidim">free software</a>. <br>
-          Web hosting donated by <a target="_blank" href="https://alabs.org">
+          Web creada con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>. <br>
+          Alojamiento web donado por <a target="_blank" href="https://alabs.org">
           <img style="padding-left: 0.5em; vertical-align: top;" src="/alabs.png"  alt="Asociación aLabs" />
           </a>.
