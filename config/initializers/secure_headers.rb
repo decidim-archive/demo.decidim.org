@@ -35,7 +35,7 @@ if Rails.env.production?
       object_src: %w('self'),
       sandbox: %w(allow-same-origin allow-forms allow-scripts allow-modals allow-popups allow-presentation), # true and [] will set a maximally restrictive setting
       plugin_types: %w(application/x-shockwave-flash),
-      script_src: %w('self'),
+      script_src: %w('self' 'unsafe-inline'),
       style_src: %w('self' 'unsafe-inline'),
       worker_src: %w('self'),
       upgrade_insecure_requests: true, # see https://www.w3.org/TR/upgrade-insecure-requests/
