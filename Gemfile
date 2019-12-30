@@ -19,6 +19,7 @@ gem "airbrake", "~> 5.0"
 gem "faker", "~> 1.8"
 gem "therubyracer"
 gem "figaro"
+gem "delayed_job_active_record"
 
 group :production do
   gem "secure_headers"
