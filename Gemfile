@@ -20,6 +20,7 @@ gem "faker", "~> 1.8"
 gem "therubyracer"
 gem "figaro"
 gem "delayed_job_active_record"
+gem "daemons"
 
 group :production do
   gem "secure_headers"
@@ -44,6 +45,7 @@ group :development do
   gem "capistrano-bundler", "~> 1.3"
   gem "capistrano-rbenv", "~> 2.1"
   gem "capistrano3-puma"
+  gem "capistrano3-delayed-job", '~> 1.0'
   gem 'ed25519', '>= 1.2', '< 2.0'
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 end
