@@ -3,15 +3,15 @@
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-DECIDIM_VERSION = '0.19.0'
+DECIDIM_VERSION = '0.20.0'
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
-gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer/" 
+#gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer/" 
 
-gem "puma", "~> 3.0"
+gem "puma"
 gem "uglifier", "~> 4.1"
 gem "wicked_pdf"
 gem "wkhtmltopdf-binary"
