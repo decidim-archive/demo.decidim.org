@@ -21,6 +21,7 @@ gem "therubyracer"
 gem "figaro"
 gem "delayed_job_active_record"
 gem "daemons"
+gem "listen", "~> 3.1"
 gem "letter_opener_web", "~> 1.3"
 
 group :production do
@@ -34,7 +35,6 @@ group :development, :test do
 end
 
 group :development do
-  gem "listen", "~> 3.1"
   gem "spring", "~> 2.0"
   gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 3.5"
