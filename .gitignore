@@ -24,3 +24,6 @@
 
 # Ignore public uploads
 public/uploads
+
+# Environment variables file for docker-compose
+.env

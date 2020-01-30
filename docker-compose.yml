@@ -6,11 +6,8 @@ services:
       - .:/app
       - bundle:/usr/local/bundle
       - node_modules:/app/node_modules
-    environment:
-      - PORT=3000
-      - DATABASE_HOST=pg
-      - DATABASE_USERNAME=postgres
-      - RAILS_ENV=development
+    env_file:
+      - .env
     ports:
       - 3000:3000
     links:
