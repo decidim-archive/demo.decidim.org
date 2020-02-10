@@ -1,11 +1,15 @@
 version: '3'
 services:
   app:
-    build: .
+    build:
+      context: .
+      args:
+        RUBY_VERSION: '2.6.3'
+        BUNDLER_VERSION: '2.1.4'
     volumes:
-      - .:/app
+      - .:/usr/src/app
       - bundle:/usr/local/bundle
-      - node_modules:/app/node_modules
+      - node_modules:/usr/src/app/node_modules
     env_file:
       - .env
     ports:
@@ -13,6 +17,8 @@ services:
     links:
       - pg
     command: bundle exec puma
+    depends_on:
+      - pg
   pg:
     image: postgres
     volumes:
