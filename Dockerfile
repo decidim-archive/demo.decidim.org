@@ -14,6 +14,8 @@ FROM ruby:${RUBY_VERSION}
 LABEL maintainer="hola@decidim.org"
 
 ARG BUNDLER_VERSION
+ARG USER_ID
+ARG GROUP_ID
 
 # Installs system dependencies
 # One package each line and sorted alphabetically
@@ -25,7 +27,18 @@ RUN apt-get update -qq \
       imagemagick \
       libicu-dev \
       libpq-dev \
+    && apt-get clean \
+    && rm -rf /var/cache/apt/archives/* \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && truncate -s 0 /var/log/*log
+
+# Installs yarn/nodejs as a dependency
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg -o /root/yarn-pubkey.gpg && apt-key add /root/yarn-pubkey.gpg \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
+    && apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
       nodejs \
+      yarn \
     && apt-get clean \
     && rm -rf /var/cache/apt/archives/* \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -37,28 +50,28 @@ ENV APP_HOME /usr/src/app/
 RUN mkdir ${APP_HOME}
 WORKDIR ${APP_HOME}
 
-# Update system gems
-RUN gem update --system
-
 # Create an user for the application for security
-RUN useradd -m -s /bin/bash -u 1000 decidim
+RUN addgroup --gid ${GROUP_ID} decidim
+RUN useradd -m -s /bin/bash -g ${GROUP_ID} -u ${USER_ID} decidim
+
+# Changes the active user on the container
+USER decidim
+
+# Update system gems
+#RUN gem update --system
 
 # Copy Gemfile and install bundler dependencies
 COPY --chown=decidim:decidim Gemfile Gemfile.lock ${APP_HOME}
-# We want to run binstubs without prefixing `bin/` or `bundle exec`
 ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=20 \
   BUNDLE_RETRY=5
 RUN gem install bundler:${BUNDLER_VERSION}
-RUN bundle install --quiet
+RUN bundle install
 
 # We don't expose the port 3000 and we don't start the webserver as this same image
 # that we're going to use for the 'worker' service. See the docker-compose.yml file to
 # see how the commands are started.
 # EXPOSE 3000
-
-# Changes the active user on the container
-USER decidim
 
 # Copy all the code to /usr/src/app
 COPY --chown=decidim:decidim . ${APP_HOME}

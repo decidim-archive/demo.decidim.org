@@ -6,6 +6,9 @@ services:
       args:
         RUBY_VERSION: '2.6.3'
         BUNDLER_VERSION: '2.1.4'
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+    user: "${USER_ID}:${GROUP_ID}"
     volumes:
       - .:/usr/src/app
       - bundle:/usr/local/bundle
@@ -13,7 +16,7 @@ services:
     env_file:
       - .env
     ports:
-      - 3000:3000
+      - ${PORT}:${PORT}
     links:
       - pg
     command: bundle exec puma
@@ -21,6 +24,8 @@ services:
       - pg
   pg:
     image: postgres
+    env_file:
+      - .env
     volumes:
       - pg-data:/var/lib/postgresql/data
 volumes:
