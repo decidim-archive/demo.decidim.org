@@ -28,7 +28,7 @@ if Rails.env.production?
       connect_src: %w(wss: 'self'),
       font_src: %w('self' data:),
       form_action: %w('self'),
-      frame_ancestors: %w('self'), # for letter openner gem on try/demo
+      frame_ancestors: %w(*), # for iframes / external embeds
       img_src: %w('self' *.maps.api.here.com data:),
       manifest_src: %w('self'),
       media_src: %w('self'),
