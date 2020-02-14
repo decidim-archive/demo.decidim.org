@@ -1,0 +1,49 @@
+---
+en:
+  activemodel:
+    attributes:
+      mock_census_authorization_handler:
+        date_of_birth: Date of birth
+        document_number: Document number
+        document_type: Document type
+        gender: Sex
+        postal_code: Postal code
+        scope_id: District
+  mock_census_authorization:
+    form:
+      date_select:
+        day: Day
+        month: Month
+        year: Year
+      gender_help: This are voluntary data
+      gender_prompt: Please, select an option
+      genders:
+        man: Man
+        non_binary: Non binary
+        woman: Woman
+      scope_prompt: Please select your district
+  mock_census_authorization_handler:
+    age_under: You have to be older than %{min_age} to validate yourself
+    invalid_document: Document number invalid
+  decidim:
+    authorization_handlers:
+      mock_census_authorization_handler:
+        explanation: Verify yourself with the FAKE census. TESTING ONLY!!
+        fields:
+          date_of_birth: Date of Birth
+          document_number: Document number
+          document_type: Document type
+          postal_code: Postal code
+          scope_id: District
+        name: FAKE census
+    mock_census_authorization_handler:
+      document_types:
+        dni: DNI
+        nie: NIE
+        passport: Passport
+    verifications:
+      authorizations:
+        first_login:
+          actions:
+            mock_census_authorization_handler: Verify yourself with the FAKE census. TESTING ONLY!!
+

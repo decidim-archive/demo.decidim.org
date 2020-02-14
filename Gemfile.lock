@@ -843,6 +843,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0)
   therubyracer
   uglifier (~> 4.1)
+  virtus-multiparams
   web-console (~> 3.5)
   wicked_pdf
   wkhtmltopdf-binary

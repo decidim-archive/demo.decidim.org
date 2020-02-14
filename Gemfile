@@ -23,6 +23,7 @@ gem "delayed_job_active_record"
 gem "daemons"
 gem "listen", "~> 3.1"
 gem "letter_opener_web", "~> 1.3"
+gem "virtus-multiparams"
 
 group :production do
   gem "secure_headers"
