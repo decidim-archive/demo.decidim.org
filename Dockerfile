@@ -64,7 +64,8 @@ USER decidim
 COPY --chown=decidim:decidim Gemfile Gemfile.lock ${APP_HOME}
 ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=20 \
-  BUNDLE_RETRY=5
+  BUNDLE_RETRY=5 \
+  PATH=${APP_HOME}/bin:${PATH}
 RUN gem install bundler:${BUNDLER_VERSION}
 RUN bundle install
 
