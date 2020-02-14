@@ -11,6 +11,9 @@ services:
     user: "${USER_ID}:${GROUP_ID}"
     volumes:
       - .:/usr/src/app
+      - app_assets:/usr/local/src/app/public/assets/
+      - app_file_storage:/app/public/system/
+      - app_tmp_cache:/usr/local/src/app/tmp/cache
       - bundle:/usr/local/bundle
       - node_modules:/usr/src/app/node_modules
     env_file:
@@ -28,7 +31,11 @@ services:
       - .env
     volumes:
       - pg-data:/var/lib/postgresql/data
+
 volumes:
-  node_modules: {}
+  app_assets: {}
+  app_file_storage: {}
+  app_tmp_cache: {}
   bundle: {}
+  node_modules: {}
   pg-data: {}
