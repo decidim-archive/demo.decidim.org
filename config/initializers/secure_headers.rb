@@ -39,6 +39,7 @@ if Rails.env.production?
       style_src: %w('self' 'unsafe-inline'),
       worker_src: %w('self'),
       upgrade_insecure_requests: true, # see https://www.w3.org/TR/upgrade-insecure-requests/
+      report_uri: %w(https://decidim.report-uri.com/r/d/csp/reportOnly)
     }
   end
 end
