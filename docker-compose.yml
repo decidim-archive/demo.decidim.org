@@ -31,6 +31,27 @@ services:
       - .env
     volumes:
       - pg-data:/var/lib/postgresql/data
+  worker:
+    build:
+      context: .
+      args:
+        RUBY_VERSION: '2.6.3'
+        BUNDLER_VERSION: '2.1.4'
+        USER_ID: ${USER_ID:-1000}
+        GROUP_ID: ${GROUP_ID:-1000}
+    user: "${USER_ID}:${GROUP_ID}"
+    volumes:
+      - .:/usr/src/app
+      - bundle:/usr/local/bundle
+      - node_modules:/usr/src/app/node_modules
+    env_file:
+      - .env
+    links:
+      - pg
+    command: bundle exec rails jobs:work
+    depends_on:
+      - pg
+
 
 volumes:
   app_assets: {}
