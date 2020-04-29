@@ -54,11 +54,14 @@ WORKDIR ${APP_HOME}
 RUN addgroup --gid ${GROUP_ID} decidim
 RUN useradd -m -s /bin/bash -g ${GROUP_ID} -u ${USER_ID} decidim
 
+# Update system gems
+RUN gem update --system 3.0.8 \
+  && gem update --system
+RUN gem uninstall bundler
+RUN gem install bundler:${BUNDLER_VERSION}
+
 # Changes the active user on the container
 USER decidim
-
-# Update system gems
-#RUN gem update --system
 
 # Copy Gemfile and install bundler dependencies
 COPY --chown=decidim:decidim Gemfile Gemfile.lock ${APP_HOME}
@@ -66,7 +69,6 @@ ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=20 \
   BUNDLE_RETRY=5 \
   PATH=${APP_HOME}/bin:${PATH}
-RUN gem install bundler:${BUNDLER_VERSION}
 RUN bundle install
 
 # We don't expose the port 3000 and we don't start the webserver as this same image
