@@ -1,4 +1,4 @@
-if Rails.env.production?
+if Rails.env.production? and ENV["ENABLE_SECURE_HEADERS"]
   SecureHeaders::Configuration.default do |config|
     config.cookies = {
       secure: true, # mark all cookies as "Secure"

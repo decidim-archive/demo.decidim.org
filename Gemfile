@@ -25,6 +25,10 @@ gem "daemons", "~> 1.3"
 gem "listen", "~> 3.1"
 gem "letter_opener_web", "~> 1.3"
 
+group :production do
+  gem "secure_headers", "~> 6.1"
+end
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
