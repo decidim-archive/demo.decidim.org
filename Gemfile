@@ -1,10 +1,15 @@
 # frozen_string_literal: true
+#
+# ATENTION: do not change this lines numbers as this works with bin/pr_reviewer.bash
+organization = 'decidim'
+branch = '0.21-stable'
+# You can make changes after this line.
 
 source "https://rubygems.org"
 
 ruby RUBY_VERSION
-#DECIDIM_VERSION = {git: "https://github.com/aspgems/decidim", branch: "feature/add_versioning_to_initiatives"}
-DECIDIM_VERSION = {git: "https://github.com/decidim/decidim"}
+
+DECIDIM_VERSION = {git: "https://github.com/#{organization}/decidim", branch: branch}
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -14,7 +19,6 @@ gem "decidim-initiatives", DECIDIM_VERSION
 
 gem "puma", "~> 4.3"
 gem "uglifier", "~> 4.1"
-gem "wicked_pdf", "~> 1.4"
 gem "wkhtmltopdf-binary", "~> 0.12"
 gem "airbrake", "~> 5.0"
 gem "faker", "~> 1.8"
