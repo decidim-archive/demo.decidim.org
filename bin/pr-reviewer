@@ -5,7 +5,7 @@ set -e
 function usage() {
    cat << HEREDOC
 
-   Usage: pr-reviewer.bash [--organization ORGANIZATION] [--branch BRANCH] [--short SHORT] [--drop-database]
+   Usage: pr-reviewer [--organization ORGANIZATION] [--branch BRANCH] [--short SHORT] [--drop-database]
 
    GitHub PR Reviewer for demo.decidim.org
 
