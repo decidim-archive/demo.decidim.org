@@ -14,7 +14,7 @@ function usage() {
      -o, --organization ORG        pass in a organization string for the PR. Default: decidim
      -b, --branch BRANCH           pass in a branch string
      -s, --short SHORT             pass in the organization and branch string on short format (ie organization:branch)
-     --drop-database               drop and recreate the database (slower)
+     -d, --drop-database               drop and recreate the database (slower)
 
 HEREDOC
 }
