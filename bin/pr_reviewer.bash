@@ -36,10 +36,10 @@ echo "STARTING UP"
 docker-compose up
 
 echo "CODE CLEANING UP"
-git checkout -b review/feature/${branch}
+now=$(date +"%Y%m%d-%H%M")
+git checkout -b review/feature/${branch}-${now}
 git add .
 git commit -m "Review for feature/${branch}"
 git checkout master
 
 echo "FINISH"
-
