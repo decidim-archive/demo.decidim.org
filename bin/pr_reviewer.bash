@@ -11,11 +11,17 @@ while [[ "$#" -gt 0 ]]; do
     case $1 in
         -o|--organization) organization="$2"; shift ;;
         -b|--branch) branch="$2"; shift ;;
+        -s|--short) short="$2"; shift ;;
         -d|--drop_database) drop_database=1 ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
 done
+
+if [[ -n ${short} ]] ; then
+  organization=$(echo $short | tr ":" " " | cut -d " " -f1)
+  branch=$(echo $short | tr ":" " " | cut -d " " -f2)
+fi
 
 sed -i "4s;.*;organization = '${organization}';" Gemfile
 sed -i "5s;.*;branch = '${branch}';" Gemfile
@@ -23,7 +29,7 @@ sed -i "5s;.*;branch = '${branch}';" Gemfile
 echo "CHECKING OUT"
 docker-compose run --rm app bundle update
 
-if [ $drop_database == 1 ] ; then
+if [[ $drop_database == 1 ]] ; then
   echo "DB CLEANING UP"
   docker-compose run --rm app bundle exec rails db:drop
   docker-compose run --rm app bundle exec rails db:create
