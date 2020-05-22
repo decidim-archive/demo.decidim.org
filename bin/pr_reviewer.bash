@@ -1,7 +1,23 @@
 #!/bin/env bash
 
 set -e 
-set -x
+
+function usage() {
+   cat << HEREDOC
+
+   Usage: pr-reviewer.bash [--organization ORGANIZATION] [--branch BRANCH] [--short SHORT] [--drop-database]
+
+   GitHub PR Reviewer for demo.decidim.org
+
+   optional arguments:
+     -h, --help           show this help message and exit
+     -o, --organization ORG        pass in a organization string for the PR. Default: decidim
+     -b, --branch BRANCH           pass in a branch string
+     -s, --short SHORT             pass in the organization and branch string on short format (ie organization:branch)
+     --drop-database               drop and recreate the database (slower)
+
+HEREDOC
+}
 
 organization=decidim  
 branch=develop
@@ -9,10 +25,11 @@ drop_database=0
 
 while [[ "$#" -gt 0 ]]; do
     case $1 in
+        -h|--help) usage; exit; ;;
         -o|--organization) organization="$2"; shift ;;
         -b|--branch) branch="$2"; shift ;;
         -s|--short) short="$2"; shift ;;
-        -d|--drop_database) drop_database=1 ;;
+        -d|--drop-database) drop_database=1 ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
