@@ -10,11 +10,11 @@ function usage() {
    GitHub PR Reviewer for demo.decidim.org
 
    optional arguments:
-     -h, --help           show this help message and exit
+     -h, --help           	   show this help message and exit
      -o, --organization ORG        pass in a organization string for the PR. Default: decidim
      -b, --branch BRANCH           pass in a branch string
      -s, --short SHORT             pass in the organization and branch string on short format (ie organization:branch)
-     -d, --drop-database               drop and recreate the database (slower)
+     -d, --drop-database           drop and recreate the database (slower)
 
 HEREDOC
 }
@@ -36,7 +36,11 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 if [[ -n ${short} ]] ; then
-  organization=$(echo $short | tr ":" " " | cut -d " " -f1)
+  if [[ ${short} =~ ":" ]] ; then
+    organization=$(echo $short | tr ":" " " | cut -d " " -f1)
+  else
+    organization="decidim"
+  fi
   branch=$(echo $short | tr ":" " " | cut -d " " -f2)
 fi
 
