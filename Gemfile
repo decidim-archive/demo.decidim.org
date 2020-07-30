@@ -2,7 +2,7 @@
 #
 # ATENTION: do not change this lines numbers as this works with bin/pr_reviewer.bash
 organization = 'decidim'
-branch = '0.21-stable'
+branch = 'release/0.22-stable'
 # You can make changes after this line.
 
 source "https://rubygems.org"
