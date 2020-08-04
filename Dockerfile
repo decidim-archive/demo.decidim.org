@@ -54,11 +54,15 @@ WORKDIR ${APP_HOME}
 RUN addgroup --gid ${GROUP_ID} decidim
 RUN useradd -m -s /bin/bash -g ${GROUP_ID} -u ${USER_ID} decidim
 
-# Update system gems
+# Workaround for fixing bug with Bundler
+# See https://github.com/rubygems/rubygems/issues/3257#issuecomment-605668775
 RUN gem update --system 3.0.8 \
   && gem update --system
 RUN gem uninstall bundler
 RUN gem install bundler:${BUNDLER_VERSION}
+
+# Fix permissions problems with bundler
+RUN chown -R decidim: /usr/local/bundle
 
 # Changes the active user on the container
 USER decidim
