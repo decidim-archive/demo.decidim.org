@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/decidim/decidim
-  revision: 572c7fdfe514f374d1d09cde7dcde891b2f49a14
+  revision: 6f45aa5f740584b2984181f8d0ee644c18cf215b
   branch: release/0.22-stable
   specs:
     decidim (0.22.0.rc1)
@@ -356,7 +356,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     colorize (0.8.1)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.7)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
@@ -391,7 +391,7 @@ GEM
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
     diff-lcs (1.4.4)
-    diffy (3.3.0)
+    diffy (3.4.0)
     doc2text (0.4.2)
       nokogiri (~> 1.10.0)
       rubyzip (~> 2.0.0)
@@ -447,7 +447,7 @@ GEM
     graphiql-rails (1.4.11)
       railties
       sprockets-rails
-    graphql (1.11.1)
+    graphql (1.11.2)
     hashdiff (1.0.1)
     hashie (4.1.0)
     highline (2.0.3)
@@ -586,7 +586,7 @@ GEM
     pg_search (2.3.2)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
-    premailer (1.12.1)
+    premailer (1.13.1)
       addressable
       css_parser (>= 1.6.0)
       htmlentities (>= 4.0.0)
@@ -813,7 +813,7 @@ GEM
       activesupport
     wisper (2.0.1)
     wisper-rspec (1.1.0)
-    wkhtmltopdf-binary (0.12.6.2)
+    wkhtmltopdf-binary (0.12.6.3)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
@@ -852,7 +852,7 @@ DEPENDENCIES
   wkhtmltopdf-binary (~> 0.12)
 
 RUBY VERSION
-   ruby 2.6.6p146
+   ruby 2.5.3p105
 
 BUNDLED WITH
-   2.1.4
+   1.17.3

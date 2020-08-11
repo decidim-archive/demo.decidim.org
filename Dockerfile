@@ -13,7 +13,6 @@ ARG RUBY_VERSION
 FROM ruby:${RUBY_VERSION}
 LABEL maintainer="hola@decidim.org"
 
-ARG BUNDLER_VERSION
 ARG USER_ID
 ARG GROUP_ID
 
@@ -22,6 +21,7 @@ ARG GROUP_ID
 # We clean up after as there's some apt caching that we don't need here
 RUN apt-get update -qq \
     && DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
+      apt-transport-https \
       build-essential \
       graphviz \
       imagemagick \
@@ -53,13 +53,6 @@ WORKDIR ${APP_HOME}
 # Create an user for the application for security
 RUN addgroup --gid ${GROUP_ID} decidim
 RUN useradd -m -s /bin/bash -g ${GROUP_ID} -u ${USER_ID} decidim
-
-# Workaround for fixing bug with Bundler
-# See https://github.com/rubygems/rubygems/issues/3257#issuecomment-605668775
-RUN gem update --system 3.0.8 \
-  && gem update --system
-RUN gem uninstall bundler
-RUN gem install bundler:${BUNDLER_VERSION}
 
 # Fix permissions problems with bundler
 RUN chown -R decidim: /usr/local/bundle

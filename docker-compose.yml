@@ -4,8 +4,7 @@ services:
     build:
       context: .
       args:
-        RUBY_VERSION: '2.6.3'
-        BUNDLER_VERSION: '1.17.3'
+        RUBY_VERSION: '2.5.3'
         USER_ID: ${USER_ID:-1000}
         GROUP_ID: ${GROUP_ID:-1000}
     user: "${USER_ID}:${GROUP_ID}"
@@ -35,8 +34,7 @@ services:
     build:
       context: .
       args:
-        RUBY_VERSION: '2.6.3'
-        BUNDLER_VERSION: '1.17.3'
+        RUBY_VERSION: '2.5.3'
         USER_ID: ${USER_ID:-1000}
         GROUP_ID: ${GROUP_ID:-1000}
     user: "${USER_ID}:${GROUP_ID}"
