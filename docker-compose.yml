@@ -1,6 +1,13 @@
-version: '3'
+version: '3.4'
 services:
-  app:
+  pg:
+    image: postgres
+    env_file:
+      - .env
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+  app: &app_base
     build:
       context: .
       args:
@@ -22,39 +29,20 @@ services:
     links:
       - pg
     command: bundle exec puma
-    depends_on:
-      - pg
-  pg:
-    image: postgres
-    env_file:
-      - .env
-    volumes:
-      - pg-data:/var/lib/postgresql/data
+
   worker:
-    build:
-      context: .
-      args:
-        RUBY_VERSION: '2.5.3'
-        USER_ID: ${USER_ID:-1000}
-        GROUP_ID: ${GROUP_ID:-1000}
-    user: "${USER_ID}:${GROUP_ID}"
-    volumes:
-      - .:/usr/src/app
-      - bundle:/usr/local/bundle
-      - node_modules:/usr/src/app/node_modules
-    env_file:
-      - .env
-    links:
-      - pg
+    <<: *app_base
     command: bundle exec rails jobs:work
+    ports: []
     depends_on:
+      - app
       - pg
 
 
 volumes:
-  app_assets: {}
-  app_file_storage: {}
-  app_tmp_cache: {}
-  bundle: {}
-  node_modules: {}
-  pg-data: {}
+  app_assets:
+  app_file_storage:
+  app_tmp_cache:
+  bundle:
+  node_modules:
+  pg-data:
