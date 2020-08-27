@@ -22,6 +22,7 @@ HEREDOC
 organization=decidim  
 branch=develop
 drop_database=0
+clean_up=1
 
 while [[ "$#" -gt 0 ]]; do
     case $1 in
@@ -30,6 +31,7 @@ while [[ "$#" -gt 0 ]]; do
         -b|--branch) branch="$2"; shift ;;
         -s|--short) short="$2"; shift ;;
         -d|--drop-database) drop_database=1 ;;
+        -n|--no-clean-up) clean_up=0 ;;
         *) echo "Unknown parameter passed: $1"; exit 1 ;;
     esac
     shift
@@ -62,11 +64,13 @@ fi
 echo "STARTING UP"
 docker-compose up
 
-echo "CODE CLEANING UP"
-now=$(date +"%Y%m%d-%H%M")
-git checkout -b review/feature/${branch}-${now}
-git add .
-git commit -m "Review for feature/${branch}"
-git checkout master
+if [[ $clean_up == 1 ]] ; then
+  echo "CODE CLEANING UP"
+  now=$(date +"%Y%m%d-%H%M")
+  git checkout -b review/feature/${branch}-${now}
+  git add .
+  git commit -m "Review for feature/${branch}"
+  git checkout master
+fi
 
 echo "FINISH"
