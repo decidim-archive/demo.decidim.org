@@ -9,10 +9,12 @@ Decidim.configure do |config|
   config.available_locales = [:en, :ca, :es]
 
   # Geocoder configuration
-  config.geocoder = {
-    static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
-    here_api_key: Rails.application.secrets.geocoder[:here_api_key]
-  }
+  if Rails.application.secrets.geocoder[:here_api_key]
+    config.geocoder = {
+      static_map_url: "https://image.maps.ls.hereapi.com/mia/1.6/mapview",
+      here_api_key: Rails.application.secrets.geocoder[:here_api_key]
+    }
+  end
 
   # Custom resource reference generator method
   # config.reference_generator = lambda do |resource, feature|
