@@ -11,7 +11,7 @@ services:
     build:
       context: .
       args:
-        RUBY_VERSION: '2.5.3'
+        RUBY_VERSION: '2.6.6'
         USER_ID: ${USER_ID:-1000}
         GROUP_ID: ${GROUP_ID:-1000}
     user: "${USER_ID}:${GROUP_ID}"
