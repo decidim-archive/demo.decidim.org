@@ -2,7 +2,7 @@
 #
 # ATENTION: do not change this lines numbers as this works with bin/pr_reviewer.bash
 organization = 'decidim'
-branch = 'release/0.22-stable'
+branch = 'release/0.23-stable'
 # You can make changes after this line.
 
 source "https://rubygems.org"
@@ -15,7 +15,7 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
 gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
-#gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer/" 
+#gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer/"
 
 gem "puma", "~> 4.3"
 gem "uglifier", "~> 4.1"
