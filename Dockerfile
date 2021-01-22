@@ -66,6 +66,8 @@ ENV LANG=C.UTF-8 \
   BUNDLE_JOBS=20 \
   BUNDLE_RETRY=5 \
   PATH=${APP_HOME}/bin:${PATH}
+RUN gem uninstall bundler
+RUN gem install bundler:1.17.3
 RUN bundle install
 
 # We don't expose the port 3000 and we don't start the webserver as this same image
