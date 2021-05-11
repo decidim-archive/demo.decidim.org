@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-DECIDIM_VERSION = {git: "https://github.com/decidim/decidim", branch: 'release/0.23-stable'}
+DECIDIM_VERSION = "0.24.2"
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-conferences", DECIDIM_VERSION
@@ -12,11 +12,11 @@ gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 #gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer/"
 
-gem "puma", "~> 4.3"
+gem "puma", "~> 5.0"
 gem "uglifier", "~> 4.1"
 gem "wkhtmltopdf-binary", "~> 0.12"
 gem "airbrake", "~> 5.0"
-gem "faker", "~> 1.8"
+gem "faker", "~> 2.14"
 gem "therubyracer", "~> 0.12"
 gem "figaro", "~> 1.1"
 gem "delayed_job_active_record", "~> 4.1"
@@ -44,7 +44,7 @@ group :development do
   gem "capistrano-rails", "~> 1.3"
   gem "capistrano-bundler", "~> 1.3"
   gem "capistrano-rbenv", "~> 2.1"
-  gem "capistrano3-puma", "~> 4.0"
+  gem "capistrano3-puma", "~> 5.0"
   gem "capistrano3-delayed-job", '~> 1.0'
   gem 'ed25519', '>= 1.2', '< 2.0'
   gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
