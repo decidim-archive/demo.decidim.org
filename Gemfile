@@ -12,7 +12,7 @@ gem "decidim-consultations", DECIDIM_VERSION
 gem "decidim-initiatives", DECIDIM_VERSION
 #gem "decidim-term_customizer", git: "https://github.com/mainio/decidim-module-term_customizer/"
 
-gem "puma", "~> 5.0"
+gem "puma", "~> 5.5"
 gem "uglifier", "~> 4.1"
 gem "wkhtmltopdf-binary", "~> 0.12"
 gem "airbrake", "~> 5.0"
